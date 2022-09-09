@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User table</title>
+</head>
+<body>
+<h2>User:</h2>
+<div>Username:</div>
+<div th:text="${user.username}"></div>
+<br>
+<div>Email:</div>
+<div th:text="${user.email}"></div>
+<br>
+<div>Password:</div>
+<div style="-webkit-text-security: disc" th:text="${user.password}" th:type="password"></div>
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.id})}">
+  <input type="submit" value="Delete">
+</form>
+<form th:method="GET" th:action="@{/users/{id}/edit(id=${user.id})}">
+  <input type="submit" value="Edit">
+</form>
+<form th:method="GET" th:action="@{/users}">
+  <input type="submit" value="Main menu">
+</form>
+</body>
+</html>
